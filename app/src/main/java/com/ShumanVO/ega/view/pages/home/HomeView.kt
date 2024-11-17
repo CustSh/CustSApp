@@ -1,6 +1,5 @@
-package com.ShumanVO.ega.ui.fragments.home
+package com.ShumanVO.ega.view.pages.home
 
-import android.view.View
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -17,9 +16,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import com.ShumanVO.ega.ui.bottombar.BottomBar
-import com.ShumanVO.ega.ui.fragments.home.elements.product.ProductItem
-import com.ShumanVO.ega.ui.fragments.home.elements.product.ProductList
+import com.ShumanVO.ega.view.pages.home.elements.product.ProductItem
+import com.ShumanVO.ega.view.pages.home.elements.product.ProductList
 
 
 class HomeView{

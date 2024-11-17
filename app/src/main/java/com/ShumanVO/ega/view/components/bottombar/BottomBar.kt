@@ -1,4 +1,4 @@
-package com.ShumanVO.ega.ui.bottombar
+package com.ShumanVO.ega.view.components.bottombar
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home

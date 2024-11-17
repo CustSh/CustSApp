@@ -1,4 +1,4 @@
-package com.ShumanVO.ega.ui.activities.main
+package com.ShumanVO.ega.view.activities.main
 
 import android.annotation.SuppressLint
 import android.view.View
@@ -10,30 +10,23 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.material.BottomNavigation
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.fragment.app.FragmentManager
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.ShumanVO.ega.ui.bottombar.BottomBar
-import com.ShumanVO.ega.ui.bottombar.BottomNavigationGraph
-import com.ShumanVO.ega.ui.fragments.FragmentContainer
+import com.ShumanVO.ega.view.components.bottombar.BottomBar
+import com.ShumanVO.ega.view.components.bottombar.BottomNavigationGraph
+
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun MainScreenView(
-    //в итоге он понадобиться для BottomNavigationGraph
-    fragmentManager: FragmentManager
 )//функция для отображеня главного экрана
 {
     val navController = rememberNavController()
-    val fragmentContainerId = remember { // эта функция сохраняет состояния между разными запусками
-        View.generateViewId()
-    }
         //создает экземпляр NavHostController
         //кот запоминался по мере выполенения программы
     Scaffold (
@@ -47,13 +40,8 @@ fun MainScreenView(
     {
         Box(modifier = Modifier.fillMaxSize())
         {
-            FragmentContainer(
-                containerId = fragmentContainerId
-            )
             BottomNavigationGraph(
                 navController = navController,
-                fragmentManager = fragmentManager,//вот сюда мы и передаём
-                fragmentContainerId = fragmentContainerId
             )
         }
     }
@@ -63,7 +51,7 @@ fun MainScreenView(
 fun BottomBarView(navController: NavHostController)
 {
     //это наш список нижней панели навигации
-    val bottoms = listOf(
+    val pages = listOf(
         BottomBar.Home,
         BottomBar.Profile,
         BottomBar.Settings
@@ -77,9 +65,9 @@ fun BottomBarView(navController: NavHostController)
 
 
     BottomNavigation { //компонет jetpack, что и создаёт нижнюю панель из BottomNavigationItem
-        bottoms.forEach { fragment->
+        pages.forEach { page->
             AddItemView(
-                fragment = fragment,
+                page = page,
                 currentDestination = currentDestination,
                 navController = navController
             )
@@ -91,17 +79,17 @@ fun BottomBarView(navController: NavHostController)
 //функция в рамках(Scope?) RowScope
 // можно воспользоваться в Row
 fun RowScope.AddItemView(
-    fragment : BottomBar,
+    page : BottomBar,
     currentDestination: NavDestination?,
     navController: NavHostController
 ){
     BottomNavigationItem( //отдельный элемент BottomNavigation
         label = {
-            Text(text = fragment.title)
+            Text(text = page.title)
         },
         icon = {
             Icon(
-                imageVector = fragment.icon,
+                imageVector = page.icon,
                 contentDescription = "Navigation Icon"
             )
         },
@@ -110,12 +98,12 @@ fun RowScope.AddItemView(
             //currentDestination -- текущая конечная точка навигации
             //hierarchy -- её свойство, что возвращает иерархию всех родительских маршрутов
             //any{} -- проврка на "хотя бы один элемент обладает этим условием?"
-            it.route == fragment.route
+            it.route == page.route
         } == true,
         //описание, что происходит в противном случае
         unselectedContentColor = LocalContentColor.current.copy(alpha = ContentAlpha.disabled),
         onClick = {
-            navController.navigate(fragment.route){
+            navController.navigate(page.route){
                 popUpTo(navController.graph.findStartDestination().id)
                 launchSingleTop = true
             }

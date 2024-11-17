@@ -1,4 +1,4 @@
-package com.ShumanVO.ega.ui.theme
+package com.ShumanVO.ega.view.theme
 
 import androidx.compose.ui.graphics.Color
 

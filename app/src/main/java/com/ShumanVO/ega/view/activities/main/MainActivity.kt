@@ -1,10 +1,10 @@
-package com.ShumanVO.ega.ui.activities.main
+package com.ShumanVO.ega.view.activities.main
 
 import android.os.Bundle
 import android.view.View
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.ShumanVO.ega.ui.theme.EgaTheme
+import com.ShumanVO.ega.view.theme.EgaTheme
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
@@ -15,13 +15,7 @@ class MainActivity : AppCompatActivity() {
             //функция, что описанна в соответсвующем import
             //сейчас исп для управления темой(светлая, темная, кастом ...)
             EgaTheme {
-                //это свойство, нам "дали добро" для использования F.M.
-                val fragmentManager = supportFragmentManager
-                //генерация ключа для контейнера фрагментов
-                val fragmentContainerId = View.generateViewId()
-                MainScreenView(
-                    fragmentManager = fragmentManager
-                )
+                MainScreenView()
             }
         }
     }

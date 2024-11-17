@@ -1,6 +1,5 @@
-package com.ShumanVO.ega.ui.theme
+package com.ShumanVO.ega.view.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

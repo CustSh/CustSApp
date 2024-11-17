@@ -1,4 +1,4 @@
-package com.ShumanVO.ega.ui.fragments.home.elements.product
+package com.ShumanVO.ega.view.pages.home.elements.product
 
 data class ProductItem(
     val id : Int,
