@@ -1,6 +1,7 @@
 package com.ShumanVO.ega.view.components.bottombar
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Settings
@@ -42,5 +43,11 @@ sealed class BottomBar (
         route = "settings",
         title = "Settings",
         icon = Icons.Default.Settings
+    )
+
+    object BasketFavorites : BottomBar(
+        route = "basketfavorites",
+        title = "Basket And Favorites",
+        icon = Icons.Default.Favorite
     )
 }

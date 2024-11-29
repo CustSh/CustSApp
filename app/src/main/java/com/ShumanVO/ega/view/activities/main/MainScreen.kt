@@ -53,8 +53,9 @@ fun BottomBarView(navController: NavHostController)
     //это наш список нижней панели навигации
     val pages = listOf(
         BottomBar.Home,
-        BottomBar.Profile,
-        BottomBar.Settings
+        BottomBar.BasketFavorites,
+        BottomBar.Settings,
+        BottomBar.Profile
     )
     //создает переменную-делегата
         /*

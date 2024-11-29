@@ -1,6 +1,6 @@
-package com.ShumanVO.ega.view.pages.home.elements.product
+package com.ShumanVO.ega.view.elements
 
-data class ProductItem(
+data class Product(
     val id : Int,
     val name : String,
     val price : Double,

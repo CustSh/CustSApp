@@ -1,4 +1,4 @@
-package com.ShumanVO.ega.view.pages.home.elements.product
+package com.ShumanVO.ega.view.elements
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
@@ -26,8 +26,8 @@ import androidx.compose.ui.text.font.FontWeight
 
 @Composable
 fun ProductItem(
-    product: ProductItem,
-    onClick: (ProductItem) -> Unit
+    product: Product,
+    onClick: (Product) -> Unit
 )
 {
     Card(
@@ -70,8 +70,8 @@ fun RatingBar(rating: Float) {
 
 @Composable
 fun ProductList(
-    products: List<ProductItem>,
-    onProductClick: (ProductItem) -> Unit,
+    products: List<Product>,
+    onProductClick: (Product) -> Unit,
     modifier: Modifier = Modifier
 ) {
     LazyColumn (
@@ -84,7 +84,7 @@ fun ProductList(
 }
 
 @Composable
-fun ShopScreen(products: List<ProductItem>, onProductClick: (ProductItem) -> Unit) {
+fun ShopScreen(products: List<Product>, onProductClick: (Product) -> Unit) {
     Scaffold(
         topBar = {
             TopAppBar(title = { Text("Shop") })

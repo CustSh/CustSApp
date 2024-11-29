@@ -1,4 +1,4 @@
-package com.ShumanVO.ega.view.pages.profile
+package com.ShumanVO.ega.view.pages
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

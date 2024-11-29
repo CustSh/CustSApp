@@ -1,14 +1,13 @@
 package com.ShumanVO.ega.view.components.bottombar
 
 import androidx.compose.runtime.Composable
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.ShumanVO.ega.view.pages.home.HomeView
-import com.ShumanVO.ega.view.pages.profile.ProfileView
-import com.ShumanVO.ega.view.pages.settings.SettingsView
+import com.ShumanVO.ega.view.pages.BasketFavoritesView
+import com.ShumanVO.ega.view.pages.HomeView
+import com.ShumanVO.ega.view.pages.ProfileView
+import com.ShumanVO.ega.view.pages.SettingsView
 
 @Composable
 fun BottomNavigationGraph(
@@ -32,6 +31,9 @@ fun BottomNavigationGraph(
     ){
         composable(route = BottomBar.Home.route) {
             HomeView.View()
+        }
+        composable(route = BottomBar.BasketFavorites.route) {
+            BasketFavoritesView.View()
         }
         composable(route = BottomBar.Settings.route) {
             SettingsView.View(isChecked = false) {}

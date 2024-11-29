@@ -1,4 +1,4 @@
-package com.ShumanVO.ega.view.pages.settings
+package com.ShumanVO.ega.view.pages
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -35,7 +35,7 @@ class SettingsView
                     .background(Color.White), // цвет фона
                 contentAlignment = Alignment.Center// расположение элементов в Box
             ) {
-                SettingsView.Setting(
+                Setting(
                     name = "name",
                     isChecked = isChecked,
                     onCheckedChange = onCheckedChange,
